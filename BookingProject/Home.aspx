@@ -460,78 +460,49 @@ p {
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  
-	
-	
-	<div class="carousel slide">
-		<div class="item">
-            <img src="Picture/hotel.jpg"   height="850"  width="1000"/>
-		</div>
-		<div class="item">
-            <img src="Picture/plane2.jpg" height="850"/>
-		</div>
-		<div class="item">
-            <img src="Picture/AmusementPark3.jpeg"  height="850"/>
-		</div>
-	</div>
 
-	<div class="search-sec bg-transparent d-none d-sm-block"">
+
+	<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<div class="search-sec bg-transparent d-none d-sm-block"">
 		<div class="container text-center tag_line">
 			<h3>Book unique experiences</h3>
 			<p>Expolore top rated tours, hotels and restaurants around the world</p>
 		</div>
 	</div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="Picture/hotel.jpg" class="d-block" alt="..." height="780" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="Picture/plane2.jpg" class="d-block" alt="..." height="780" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="Picture/AmusementPark3.jpeg" class="d-block" alt="..." height="780" width="100%">
+    </div>
+  </div>
+	</div>
+    <br />
+    <br />
+    <br />
 	<div class="search-sec">
 		<div class="container">
-			<div>
-				<div class="row no-gutters custom-search-input-2">
-					<div class="col-lg-4">
+			
+				<div class="row no-gutters custom-search-input-3">
+					<div class="col-md-4">
 						<div class="form-group">
-							<div class="custom-select-form">
-								<select class="w-100" name="city" id="city">
-									<option value="" selected>Select your Country, City...</option>
-									<option value="Europe">Europe</option>
-									<option value="United states">United states</option>
-									<option value="South America">South America</option>
-									<option value="Oceania">Oceania</option>
-									<option value="Asia">Asia</option>
-									<option value="Europe">Europe</option>
-									<option value="United states">United states</option>
-									<option value="South America">South America</option>
-									<option value="Oceania">Oceania</option>
-									<option value="Asia">Asia</option>
-									<option value="Europe">Europe</option>
-									<option value="United states">United states</option>
-									<option value="South America">South America</option>
-									<option value="Oceania">Oceania</option>
-									<option value="Asia">Asia</option>
-									<option value="Europe">Europe</option>
-									<option value="United states">United states</option>
-									<option value="South America">South America</option>
-									<option value="Oceania">Oceania</option>
-                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>				<option value="Asia">Asia</option>
-								</select>
-							</div>
+							
+								
+                    <asp:DropDownList ID="DropDownList1" runat="server" ></asp:DropDownList>
+						
 							<i class="fa fa-map-marker"></i>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="form-group">
                             <asp:TextBox ID="TextBox1" runat="server" placeholder="Select Date..."></asp:TextBox>
-                         <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary form-control" OnClick="LinkButton1_Click">
-<i class="fa fa-calendar"></i> </asp:LinkButton>
-							
+							<i class="fa fa-calendar"></i>
 						</div>
-					</div>  
-                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" Visible="false" BorderColor="Black" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth"   Width="330px" BorderStyle="Solid" CellSpacing="1" OnDayRender="Calendar1_DayRender">
-                                <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                <TodayDayStyle BackColor="#999999" ForeColor="White" />
-                                <DayStyle BackColor="#CCCCCC" />
-                                <OtherMonthDayStyle ForeColor="#999999" />
-                                <NextPrevStyle Font-Size="8pt" ForeColor="White" Font-Bold="True" />
-                                <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" /> <TitleStyle BackColor="#333399" Font-Bold="True" Font-Size="12pt" ForeColor="White" Height="12pt" BorderStyle="Solid" />
-
-                            </asp:Calendar>
+					</div>
 					<div class="col-lg-3">
 						<div class="panel-dropdown">
 							<a href="#">Guests <span class="qtyTotal">1</span></a>
@@ -548,14 +519,14 @@ p {
 						</div>
 					</div>
 					<div class="col-lg-2">
-						<button type="submit"   class="btn_search btn btn-danger wrn-btn ripple"><span>Search </span></button>
+						<button type="submit" class="btn_search btn btn-danger wrn-btn ripple"><span>Search </span></button>
 					</div>
 				</div>
-			</div>
+			
 		</div>
 	</div>
-
-
+    <br />
+    <br />
 <section class="container-fluid container-custom margin_80_0 py-4">
 	<div class="main_title_2 py-4 text-center">
 		<span><em></em></span>
@@ -579,11 +550,13 @@ p {
                 <br />
                 <asp:Label ID="Label5" runat="server" Text='<%# Eval ("Text") %>'></asp:Label>
 
+
                 <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
-                    <div class="btn btn-primary">Read More<span class="fas fa-arrow-right"></span></div>
+                    
+                        <asp:Button ID="Button1" CommandName='<%# Eval ("Code") %>' runat="server" Text="To order" class="btn btn-primary" OnClick="Button1_Click"/>
                     <div class="d-flex align-items-center justify-content-center foot">
-                        <p class="admin">Admin</p>
-                        <p class="ps-3 icon text-muted"><span class="fas fa-comment-alt pe-1"></span>3</p>
+                     <p class="admin"> </p>
+                        <p class="ps-3 icon text-muted"><span class="fas fa-comment-alt pe-1"></span></p>
 
                      
                     </div>
@@ -623,10 +596,7 @@ p {
 
 <div class="backdrop" style="display: none;"></div>
 		
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
-<script src="https://www.jqueryscript.net/demo/Customizable-Animated-Dropdown-Plugin-with-jQuery-CSS3-Nice-Select/js/jquery.nice-select.js"></script>
+
     <br />
     <br />
 </asp:Content>

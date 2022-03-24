@@ -13,7 +13,20 @@ namespace BookingProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+      
+        protected void Costumer(object sender, EventArgs e)
+        {
+            Panel1.Visible = false;
+            Panel2.Visible = true;
+        }
+
+        protected void hometab_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = true;
+            Panel2.Visible = false;
         }
         protected void Button1_Click(object sender, EventArgs e)
         {

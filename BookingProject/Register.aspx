@@ -1,6 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BookingProject.Register" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"  UnobtrusiveValidationMode="None" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BookingProject.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+   
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
@@ -103,78 +105,108 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="container register">
+<div class="container register">
                 <div class="row">
                     <div class="col-md-3 register-left">
-                        <img src="Picture/plane.png"  alt=""/>
-                        <h3>Welcome</h3>
-                        <asp:Button ID="Button2" runat="server" Text="Login" href="Login.aspx"/>
-                        <br/>
+                        <img src="Picture/plane.png" alt=""/>
+                        <h3>Welcome.</h3>
+                        <input type="submit" name="" value="Login"/><br/>
                     </div>
                     <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">customer</a>
+                                <asp:Button ID="hometab"  data-toggle="tab" href="#home"   role="tab" aria-controls="home" aria-selected="true" runat="server" Text="User" OnClick="hometab_Click"/>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Auditor</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">manager</a>
+                                 <asp:Button ID="Button1" runat="server" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" Text="Costumer" OnClick="Costumer" />
+                                <a class="nav-link" id="profiletab" >Auditi</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Apply as a customer</h3>
+    <asp:Panel ID="Panel1" runat="server" Visible="true">
+
+         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Apply as a Auditor</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
-                                        <div class="form-group"> 
-                                            <asp:TextBox ID="FirstName" runat="server" name="FirstName" class="form-control" placeholder="First Name *"></asp:TextBox>   
-                                            <asp:RequiredFieldValidator ID="RequiredFirstName" runat="server" ErrorMessage="Required first name" ControlToValidate="FirstName" ForeColor="#33cccc" ></asp:RequiredFieldValidator>
+                                        <div class="form-group">
+                                          <asp:TextBox ID="FirstName" runat="server" name="FirstName" class="form-control" placeholder="aaaaa *"></asp:TextBox>   
+
                                         </div>
                                         <div class="form-group">
                                             <asp:TextBox ID="LastName" runat="server" name="LastName" class="form-control" placeholder="Last Name *"></asp:TextBox> 
-                                            <asp:RequiredFieldValidator ID="RequiredLastName" runat="server" ErrorMessage="Required last name" ControlToValidate="LastName" ForeColor="#33cccc"></asp:RequiredFieldValidator>
+
                                         </div>
                                         <div class="form-group">
-                                            <asp:TextBox ID="Pass" runat="server" name="Password" class="form-control" placeholder="Password *"></asp:TextBox> 
-                                            <asp:RequiredFieldValidator ID="RequiredPassword" runat="server" ErrorMessage="Required password" ControlToValidate="Pass" ForeColor="#33cccc"></asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="ComparePass" runat="server" ErrorMessage="The password is not match to the confirm password" ControlToValidate="Pass" ControlToCompare="ConfirmPassword" ForeColor="#33cccc"></asp:CompareValidator>
+                                             <asp:TextBox ID="Pass" runat="server" name="Password" class="form-control" placeholder="Password *"></asp:TextBox> 
+
                                         </div>
-                                       
+                                        <div class="form-group">
+                                             <asp:TextBox ID="ConfirmPassword" runat="server"  name="ConfirmPassword" class="form-control"  placeholder="Confirm Password *"></asp:TextBox>  
+
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <asp:TextBox ID="ConfirmPassword" runat="server"  name="ConfirmPassword" class="form-control"  placeholder="Confirm Password *"></asp:TextBox>  
-                                            <asp:RequiredFieldValidator ID="RequiredConfirmPassword" runat="server" ErrorMessage="Required confirmpassword" ControlToValidate="ConfirmPassword" ForeColor="#33cccc"></asp:RequiredFieldValidator>
-                                        </div>
-                                        <div class="form-group">
                                             <asp:TextBox ID="Email" runat="server" name="Email" class="form-control" placeholder="Email *"></asp:TextBox> 
-                                            <asp:RequiredFieldValidator ID="RequiredEmail" runat="server" ErrorMessage="Required email" ControlToValidate="Email" ForeColor="#33cccc"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionEmail" runat="server" ErrorMessage="Invalid email address" ControlToValidate="Email" ValidationExpression="\w+\@\w+\.com" ForeColor="#33cccc"></asp:RegularExpressionValidator>
+ 
                                         </div>
                                         <div class="form-group">
-                                            <asp:TextBox ID="PhoneNumber" runat="server" name="txtEmpPhone" class="form-control" placeholder="Phone Number *"></asp:TextBox> 
-                                            <asp:RequiredFieldValidator ID="RequiredPhoneNumber" runat="server" ErrorMessage="Required phone number" ControlToValidate="PhoneNumber" ForeColor="#33cccc"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionNumber" runat="server" ErrorMessage="Invalid phone number" ControlToValidate="PhoneNumber" ValidationExpression="[0-9]{10}" ForeColor="#33cccc"></asp:RegularExpressionValidator>
+                                              <asp:TextBox ID="PhoneNumber" runat="server" name="txtEmpPhone" class="form-control" placeholder="Phone Number *"></asp:TextBox> 
+ 
                                         </div>
                                         <div class="form-group">
-                                             <div class="control-group">
-                                     <!-- Button -->
-                                    <div class="controls">          
-                                        <asp:Button  ID="Button1" runat="server" Text="Register" class="btnRegister"   OnClick="Button1_Click"/>
+                                          <asp:Button  ID="Button2" runat="server" Text="Register" class="btnRegister"   OnClick="Button1_Click"/>
                                         <br />
                                         <br />
                                        <br />
                                         <br />
                                             <asp:Label ID="Error2" runat="server" Text="" ForeColor="#33cccc"></asp:Label>
 
-                                            </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                           
-        </div>
-     </div>
-     </div>
-     </div>
-     </div>
+
+    </asp:Panel>
+
+    <asp:Panel ID="Panel2" runat="server"  Visible="false">
+   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Apply as a Auditor</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Phone Number *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          
+</asp:Panel>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
 </asp:Content>

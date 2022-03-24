@@ -14,14 +14,26 @@ namespace BookingProject
         string[,] schedDay = new string[13, 32];
         protected void Page_Load(object sender, EventArgs e)
         {
-            //int x = 0;
-            //if (!string.IsNullOrEmpty(Request.QueryString["value"]))
-            //{
-            //    x = Int32.Parse(Request.QueryString["value"]);
-            //}
+            if (!IsPostBack)
+            {
+                DropDownList1.DataSource = p1.GetAllCountry();
+                DropDownList1.DataTextField = "NameCountry";
+                DropDownList1.DataValueField = "code";
+                DropDownList1.DataBind();
+                //int x = 0;
+                //if (!string.IsNullOrEmpty(Request.QueryString["value"]))
+                //{
+                //    x = Int32.Parse(Request.QueryString["value"]);
+                //}
 
-            Repeater1.DataSource = p1.GetAllCountry();
-            Repeater1.DataBind();
+                Repeater1.DataSource = p1.GetAllCountry();
+                Repeater1.DataBind();
+            }
+            //if()
+            //{
+                
+            //    Response.Redirect("Hotel.aspx");
+            //}
         }
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
         {
@@ -48,7 +60,12 @@ namespace BookingProject
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
 
-            Calendar1.Visible = true;
+            //Calendar1.Visible = true;
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
 
         }
     }
